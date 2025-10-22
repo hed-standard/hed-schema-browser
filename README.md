@@ -9,7 +9,7 @@ Interactive browser for HED (Hierarchical Event Descriptor) schemas.
 
 ## 🌐 Live Demo
 
-Visit the live browser at: **https://hed-standard.github.io/hed-schema-browser/**
+Visit the live browser at: **https://wwww.hedtags.org/hed-schema-browser/**
 
 ## ✨ Features
 
