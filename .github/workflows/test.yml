@@ -15,7 +15,7 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v2.7.0
         with:
-          args: --verbose --no-progress --exclude 'https://github.com/hed-standard/hed-schema-browser/workflows/Deploy/badge.svg' --exclude-path 'http://localhost*' '**/*.html' '**/*.md'
+          args: --verbose --no-progress --exclude 'https://github.com/hed-standard/hed-schema-browser/workflows/Deploy/badge.svg' --exclude 'http://localhost*' '**/*.html' '**/*.md'
           fail: true
           
   html-validation:
