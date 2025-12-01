@@ -10,10 +10,10 @@ jobs:
   link-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       
       - name: Link Checker
-        uses: lycheeverse/lychee-action@v2
+        uses: lycheeverse/lychee-action@v2.7.0
         with:
           args: --verbose --no-progress '**/*.html' '**/*.md'
           fail: true
@@ -21,7 +21,7 @@ jobs:
   html-validation:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       
       - name: HTML5 Validator
         uses: Cyb3r-Jak3/html5validator-action@v7.2.0
