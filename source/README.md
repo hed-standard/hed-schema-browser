@@ -4,7 +4,9 @@ This documentation explains what goes into the HTML HED schema browser (display_
 
 For development, it would be convenient to be able to view the [display_hed.html](http://www.hedtags.org/display_hed.html) page locally.  Once you've cloned the [Github repository](https://github.com/hed-standard/hed-standard.github.io), follow the instruction on jekyll tutorial for local deployment: https://jekyllrb.com/tutorials/using-jekyll-with-bundler/. Then you should be able to access the display file using
 
+```code
 http://localhost:<port>/display_hed.html
+```
 
 # Key Components and Files
 
