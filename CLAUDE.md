@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Static single-page browser for HED (Hierarchical Event Descriptor) vocabularies. No build step. No package manager. Schema discovery and all schema XML are fetched at runtime from `raw.githubusercontent.com` (the `hed-standard/hed-schemas` repo). The GitHub REST API is **no longer used** — discovery goes through the `schema_versions.json` manifest at the repo root (see "Schema discovery via manifest").
+Static single-page browser for HED (Hierarchical Event Descriptors) vocabularies. No build step. No package manager. Schema discovery and all schema XML are fetched at runtime from `raw.githubusercontent.com` (the `hed-standard/hed-schemas` repo). The GitHub REST API is **no longer used** — discovery goes through the `schema_versions.json` manifest at the repo root (see "Schema discovery via manifest").
 
 Live site: https://www.hedtags.org/hed-schema-browser/
 

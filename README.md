@@ -1,6 +1,6 @@
 # HED Schema Browser
 
-Interactive, browser-based viewer for HED (Hierarchical Event Descriptor) vocabularies.
+Interactive, browser-based viewer for HED (Hierarchical Event Descriptors) vocabularies.
 
 [![Test](https://github.com/hed-standard/hed-schema-browser/actions/workflows/test.yml/badge.svg)](https://github.com/hed-standard/hed-schema-browser/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)

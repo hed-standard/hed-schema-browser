@@ -89,11 +89,25 @@ a.list-group-item:last-of-type + div.ex-attrs + div.attribute + div::after {
     border-radius: 6px;
     overflow: hidden;
 }
-.pane-tree { flex: 0 0 50%; overflow: auto; padding: 10px 8px 14px 16px; }
+/* Default tree:detail split is 5:8 (tree gets 5/13 of the width); the divider
+   drag overrides this at runtime by setting an explicit px flex-basis. */
+.pane-tree { flex: 0 0 calc(500% / 13); overflow: auto; padding: 10px 8px 14px 16px; }
 .pane-tree #schema { overflow: visible; margin-bottom: 0; }   /* let the pane scroll horizontally */
 .tree-divider { flex: 0 0 7px; background: #e2e7ec; cursor: col-resize; }
 .tree-divider:hover { background: #c7d0d8; }
 .pane-info { flex: 1 1 0; overflow: auto; padding: 14px 16px; background: #fbfcfd; border-left: 1px solid #eee; }
+
+/* The tag-search autocomplete dropdown is absolutely positioned inside the
+   "Schema information" accordion card header. Bootstrap's `.accordion > .card`
+   rule sets `overflow: hidden` (to clip the card's rounded corners during the
+   collapse animation); that also clips the dropdown to the card's short
+   collapsed height, so the search suggestions were invisible. Letting this card
+   (and its header) overflow lets the dropdown escape. The collapse animation is
+   clipped on #schemaDesc (.collapsing), not the card, so this stays safe. */
+#accordionExample > .card,
+#accordionExample .card-header {
+    overflow: visible;
+}
 
 /* Horizontal drag handle to resize an area's height (tree area / extra sections). */
 .v-resize { height: 9px; margin: 4px 0; background: #e2e7ec; border-radius: 3px; cursor: row-resize; }

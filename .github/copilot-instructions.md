@@ -4,7 +4,7 @@ Guidance for GitHub Copilot when working in this repository.
 
 ## What this repo is
 
-A static, single-page web app for browsing HED (Hierarchical Event Descriptor)
+A static, single-page web app for browsing HED (Hierarchical Event Descriptors)
 schemas — the standard schema and the HED library schemas. **No build step, no
 bundler, no package manager.** It is served exactly as the files appear in the
 repo and is deployed to GitHub Pages.

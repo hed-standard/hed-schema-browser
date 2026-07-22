@@ -222,9 +222,12 @@ function versionLabelFromFile(file) {
  * e.g. "testlib_3.0.0" -> "3.0.0", "lang_1.1.0" -> "1.1.0", "8.4.0" -> "8.4.0".
  * The full "<library>_<version>" form is unchanged everywhere else (version
  * sorting/comparison and the "HED Schema: testlib_3.0.0" title).
+ * Only the leading "<name>_" prefix (a non-numeric library token immediately
+ * before the version) is removed, so any underscore *within* the version is
+ * preserved (e.g. "lang_1.2.0_rc1" -> "1.2.0_rc1", not "rc1").
  */
 function versionNumberOnly(version) {
-    return String(version).replace(/^.*_/, '');
+    return String(version).replace(/^[A-Za-z][A-Za-z0-9-]*_(?=\d)/, '');
 }
 
 /**
@@ -962,6 +965,11 @@ function bindExtraToggles() {
 // Guard so help.json is fetched only once, no matter how often the dialog opens.
 var helpLoaded = false;
 
+/** True only for http/https URLs — used to keep unsafe schemes out of help links. */
+function isHttpUrl(url) {
+    return /^https?:\/\//i.test(String(url).trim());
+}
+
 /**
  * Wire the "?" help button's dialog. The help text lives in help.json (repo
  * root) so it can be edited without changing any code; it is fetched the first
@@ -1017,8 +1025,16 @@ function renderHelp(help) {
     if (Array.isArray(help.links) && help.links.length) {
         html += '<h6 class="mt-3 font-weight-bold">Links</h6><ul>';
         help.links.forEach(function (link) {
-            html += '<li><a href="' + escapeHtml(link.url) + '" target="_blank" rel="noopener">'
-                + escapeHtml(link.label || link.url) + '</a></li>';
+            var label = escapeHtml(link.label || link.url);
+            // help.json is content-editable, so only linkify http(s) URLs — a
+            // scheme like "javascript:" would still execute on click even when
+            // the attribute value is HTML-escaped. Unsafe URLs render as text.
+            if (isHttpUrl(link.url)) {
+                html += '<li><a href="' + escapeHtml(link.url) + '" target="_blank" rel="noopener">'
+                    + label + '</a></li>';
+            } else {
+                html += '<li>' + label + '</li>';
+            }
         });
         html += '</ul>';
     }
